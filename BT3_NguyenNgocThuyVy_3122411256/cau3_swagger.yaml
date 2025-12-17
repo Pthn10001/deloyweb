@@ -1,0 +1,164 @@
+openapi: 3.0.0
+info:
+  title: Coolstore Services
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/nguyenthuyvy/vyy/1.0.0
+  description: SwaggerHub API Auto Mocking
+- url: http://localhost
+  description: Local server
+paths:
+  /cart/api/carts:
+    put:
+      tags:
+      - CartService
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - CartService
+      responses:
+        "200":
+          description: OK
+  /cart/api/carts/{cart_id}:
+    get:
+      tags:
+      - CartService
+      parameters:
+      - name: cart_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /cart/api/carts/{cart_id}/checkout:
+    put:
+      tags:
+      - CartService
+      parameters:
+      - name: cart_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /cart/api/carts/{cart_id}/items/{product_id}:
+    delete:
+      tags:
+      - CartService
+      parameters:
+      - name: cart_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /catalog/api/products:
+    get:
+      tags:
+      - CatalogService
+      parameters:
+      - name: current_page
+        in: query
+        required: false
+        schema:
+          type: integer
+      - name: high_price
+        in: query
+        required: false
+        schema:
+          type: number
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - CatalogService
+      responses:
+        "200":
+          description: OK
+  /catalog/api/products/{product_id}:
+    get:
+      tags:
+      - CatalogService
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /inventory/api/availabilities:
+    get:
+      tags:
+      - InventoryService
+      responses:
+        "200":
+          description: OK
+  /inventory/api/availabilities/{id}:
+    get:
+      tags:
+      - InventoryService
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /inventory/api/inventory/migrate:
+    post:
+      tags:
+      - InventoryService
+      responses:
+        "200":
+          description: OK
+  /rating/api/ratings:
+    get:
+      tags:
+      - RatingService
+      responses:
+        "200":
+          description: OK
+    put:
+      tags:
+      - RatingService
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - RatingService
+      responses:
+        "200":
+          description: OK
+  /rating/api/ratings/{product_id}:
+    get:
+      tags:
+      - RatingService
+      parameters:
+      - name: product_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+components: {}
